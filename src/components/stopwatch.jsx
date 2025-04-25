@@ -104,13 +104,24 @@ const Stopwatch = ({ billing, ps, category, price }) => {
   }
 
   function currentPrice(price) {
-    const priceperjam = price / jam;
-    return `Rp${Number((priceperjam * elapsedTime).toFixed()).toLocaleString(
+    let priceperjam = (price / jam) * elapsedTime;
+    let precision = 1;
+    if (priceperjam < 1000) {
+      precision = 1;
+    } else if (priceperjam < 10000) {
+      precision = 2;
+    } else if (priceperjam < 100000) {
+      precision = 3;
+    } else if (priceperjam < 1000000) {
+      precision = 4;
+    }
+    return `Rp${Number(priceperjam.toPrecision(precision)).toLocaleString(
       "id-ID"
     )}`;
     // return jam - elapsedTime;
     // return `Rp ${parseInt(0).toLocaleString("id-ID")}`;
   }
+
 
   let categoryColor = null;
 

@@ -11,6 +11,7 @@ const HomePage = () => {
         <Stopwatch billing={3} ps="PS 4" category="Standar" price={7500} />
         <Stopwatch billing={4} ps="PS 4" category="Premium" price={10000} />
         <Stopwatch billing={5} ps="PS 5" category="VIP" price={15000} />
+        <Stopwatch billing={5} ps="PS 5" category="VIP" price={1000000} />
       </div>
     </>
   );
